@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio Inessan El Jadil</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  
+
+  
+
+  <!-- =======================================================
+  * Template Name: MyResume
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex flex-column justify-content-center">
+
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+        
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+   <!-- Hero Section -->
+<section id="hero" class="hero section light-background">
+  <canvas id="particles"></canvas>
+  <div class="container" data-aos="zoom-out">
+      <div class="row justify-content-center">
+          <div class="col-lg-9">
+              <h2>Inessan El Jadil</h2>
+              <p>Je suis <span class="typed" data-typed-items="Développeur Web, Étudiant, Professeur de Judo "></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+              <div class="social-links">
+                <a href="https://github.com/ton_pseudo" target="_blank"><i class="bi bi-github"></i></a>
+                  <a href="https://wa.me/0610853226" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                  <a href="https://www.instagram.com/inessan_23" target="_blank"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/ton_pseudo" target="_blank"><i class="bi bi-linkedin"></i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section><!-- /Hero Section -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let particles = [];
+      const numParticles = 100;
+
+      class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 5 + 2;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 2 - 1;
+        this.color = `hsl(${Math.random() * 360}, 100%, 50%)`; // Couleur aléatoire
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+
+      function init() {
+          particles = [];
+          for (let i = 0; i < numParticles; i++) {
+              particles.push(new Particle());
+          }
+      }
+
+      function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(particle => {
+              particle.update();
+              particle.draw();
+          });
+          requestAnimationFrame(animate);
+      }
+
+      window.addEventListener("resize", () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          init();
+      });
+
+      init();
+      animate();
+  </script>
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>A Propos de Moi</h2>
+        <p class="animated-paragraph">
+          Étudiant en développement web, je vais commencer en septembre ma 3ᵉ année de Bachelor à Sup de Vinci, une école spécialisée dans les métiers du numérique.
+          Passionné par la création de sites et d’applications web, j’aime concevoir des interfaces modernes, fluides et intuitives. 
+          Au fil des années, j’ai pu explorer différents aspects du développement, du front-end au back-end, en travaillant sur divers projets qui m’ont permis de progresser et d’affiner ma vision du métier.
+          Ce portfolio regroupe tout ce que j’ai appris et réalisé : des projets personnels, académiques et professionnels, chacun reflétant mon évolution et ma capacité à m’adapter aux nouvelles technologies.
+        </p>
+        
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <img src="assets/img/masonry-portfolio/pp.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 content">
+            <h2> Information personnel :  </h2>
+            <p class="fst-italic py-3">
+           
+            </p>
+            
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Date de Naissance:</strong> <span>23/12/2003</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Mon Univers Web:</strong> <span>www.example.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Telephone:</strong> <span>06 10 85 32 26</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Paris 18, France</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Niveau d'Étude:</strong> <span>Bachelor</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>inessanignace03@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Alternance:</strong> <span>Disponible dès Septembre 2025</span></li>
+                </ul>
+              </div>
+              <p class="animated-paragraph-second">
+                Actuellement à la recherche d’une alternance, je souhaite continuer à apprendre et évoluer dans un environnement stimulant où je pourrai mettre mes compétences en pratique et relever de nouveaux défis.
+              </p>
+              
+        </div>
+
+      </div> 
+      
+
+    </section><!-- /About Section -->
+
+   
+
+  <!-- Section Compétences -->
+<section id="skills" class="skills section py-16">
+
+  <!-- Titre de la Section -->
+  <div class="container section-title text-center" data-aos="fade-up">
+    <h2 class="text-5xl font-bold uppercase tracking-widest">Compétences</h2>
+    <p class="tech-button-tech">
+      <span>U</span><span>n</span> <span>a</span><span>p</span><span>e</span><span>r</span><span>ç</span><span>u</span>
+      <span>d</span><span>e</span><span>s</span> <span>t</span><span>e</span><span>c</span><span>h</span><span>n</span><span>o</span><span>l</span><span>o</span><span>g</span><span>i</span><span>e</span><span>s</span>
+      <span>q</span><span>u</span><span>e</span> <span>j</span><span>e</span> <span>m</span><span>a</span><span>î</span><span>t</span><span>r</span><span>i</span><span>s</span><span>e</span>
+      <span>e</span><span>t</span> <span>u</span><span>t</span><span>i</span><span>l</span><span>i</span><span>s</span><span>e</span>
+      <span>r</span><span>é</span><span>g</span><span>u</span><span>l</span><span>i</span><span>è</span><span>r</span><span>e</span><span>m</span><span>e</span><span>n</span><span>t</span><span>.</span>
+    </p>
+    
+    
+  </div><!-- Fin du Titre de la Section -->
+
+  <div class="container mt-12" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row skills-content skills-animation justify-content-center text-xl">
+
+      <!-- Colonne Front-End -->
+      <div class="col-lg-6">
+        <h3 class="text-center text-3xl font-semibold mb-6 text-blue-400">Front-End</h3>
+        
+        <div class="progress">
+          <span class="skill text-2xl">HTML <i class="val">100%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-blue-500" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">CSS <i class="val">100%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-blue-500" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">JavaScript <i class="val">80%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-blue-500" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">React.js <i class="val">70%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-blue-500" style="width: 75%;"></div>
+          </div>
+        </div>
+
+      </div><!-- Fin Colonne Front-End -->
+
+      <!-- Colonne Back-End -->
+      <div class="col-lg-6">
+        <h3 class="text-center text-3xl font-semibold mb-6 text-green-400">Back-End</h3>
+        
+        <div class="progress">
+          <span class="skill text-2xl">PHP <i class="val">80%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-green-500" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">Node.js <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-green-500" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">Symfony <i class="val">70%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-green-500" style="width: 70%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">SQL (MySQL, PostgreSQL, SQL Server) <i class="val">65%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-green-500" style="width: 65%;"></div>
+          </div>
+        </div>
+
+      </div><!-- Fin Colonne Back-End -->
+
+    </div><!-- Fin de la première rangée -->
+
+    <!-- Troisième rangée pour "Autres" avec largeur réduite -->
+    <div class="row justify-content-center mt-16">
+      <div class="col-lg-8">
+        <h3 class="text-center text-3xl font-semibold mb-6 text-yellow-400">Autres</h3>
+
+        <div class="progress">
+          <span class="skill text-2xl">Git / GitHub <i class="val">70%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-yellow-500" style="width: 70%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">Linux <i class="val">60%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-yellow-500" style="width: 60%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">Figma <i class="val">60%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-yellow-500" style="width: 65%;"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill text-2xl">WordPress <i class="val">70%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar bg-yellow-500" style="width: 70%;"></div>
+          </div>
+        </div>
+
+      </div><!-- Fin Colonne Autres avec largeur réduite -->
+    </div><!-- Fin de la troisième rangée -->
+
+  </div>
+
+</section><!-- Fin de la section Compétences -->
+
+        
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="text-center mt-4">
+        <a href="assets/files/CV_Inessan_El_Jadil.pdf" class="btn-cv-download" download>
+            <i class="bi bi-file-earmark-arrow-down"></i> Télécharger mon CV
+        </a>
+    </div>
+    
+    </section><!-- /Skills Section -->
+
+ 
+   <!-- Portfolio  -->
+    <section id="portfolio" class="portfolio section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p class="tech-button-projects">
+          <span>Q</span><span>u</span><span>e</span><span>l</span><span>q</span><span>u</span><span>e</span><span>s</span>
+          <span>p</span><span>r</span><span>o</span><span>j</span><span>e</span><span>t</span><span>s</span><span> :</span>
+         
+        </p>
+        
+      </div>
+  
+      <div class="carousel-container">
+        <div class="carousel">
+          <!-- Item 1 : Galerie de photos (Marvel) -->
+          <div class="item" data-photos="assets/img/masonry-portfolio/portfolio details/marvel1.jpeg, assets/img/masonry-portfolio/portfolio details/marvel2.jpeg, assets/img/masonry-portfolio/portfolio details/marvel3.jpeg, assets/img/masonry-portfolio/portfolio details/marvel4.jpeg, assets/img/masonry-portfolio/portfolio details/marvel5.jpeg, assets/img/masonry-portfolio/portfolio details/marvel6.jpeg" data-info="Application Jeu Marvel Quizz (React Js)">
+            <img src="assets/img/masonry-portfolio/marvel.jpg" alt="Projet 1">
+            <div class="overlay">
+                <img src="assets/img/masonry-portfolio/icon/play-2.png" alt="Play" class="play-icon">
+            </div>
+         </div>
+
+          <!-- Item 2 : Vidéo ou GIF -->
+          <div class="item" data-video="assets/img/masonry-portfolio/portfolio details/videorick.mp4" data-info="Jeu Rick et Morty (JavaScript)">
+            <img src="assets/img/masonry-portfolio/RickMorty .jpg" alt="Projet 2">
+            <div class="overlay">
+              <img src="assets/img/masonry-portfolio/icon/play-2.png" alt="Play" class="play-icon">
+            </div>
+          </div>
+          <!-- Item 3 : Vidéo ou GIF -->
+          <div class="item" data-video="assets/img/masonry-portfolio/portfolio details/kyotovideo.mp4" data-info="Site vitrine, Agence de tourisme de Kyoto(Html,Css,Javascript)">
+            <img src="assets/img/masonry-portfolio/kyoto.jpg" alt="Projet 3">
+            <div class="overlay">
+              <img src="assets/img/masonry-portfolio/icon/play-2.png" alt="Play" class="play-icon">
+            </div>
+          </div>
+          <!-- Item 4 : Vidéo -->
+          <div class="item" data-video="assets/img/masonry-portfolio/portfolio details/maisonvideo.mp4" data-info="Site vitrine de Maison de luxe (Html,Css,Javascript)">
+            <img src="assets/img/masonry-portfolio/maison.jpg" alt="Projet 4">
+            <div class="overlay">
+              <img src="assets/img/masonry-portfolio/icon/play-2.png" alt="Play" class="play-icon">
+            </div>
+          </div>
+          <!-- Item 5 : Galerie de photos -->
+          <div class="item" data-video="assets/img/portfolio/maillot.mp4" data-info="Site E-commerce Complet – Vente de Maillots de Foot Rétro (Symfony)">
+            <img src="assets/img/masonry-portfolio/maillot.jpg" alt="Projet 5">
+            <div class="overlay">
+              <img src="assets/img/masonry-portfolio/icon/play-2.png" alt="Play" class="play-icon">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="controls">
+        <button class="prev">←</button>
+        <button class="next">→</button>
+      </div>
+    </section>
+  
+    <!-- Structure de la modale -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <!-- Bouton de fermeture stylé -->
+        <span class="close">&times;</span>
+        <video controls style="display: none;">
+          <source src="" type="video/mp4">
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <img src="" alt="Media" style="display: none;">
+        <!-- Conteneur pour la galerie photo -->
+        <div class="gallery" style="display: none; position: relative; text-align: center;">
+          <img class="gallery-arrow gallery-prev" src="assets/img/masonry-portfolio/icon/left.png" alt="Précédent"
+               style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); cursor: pointer; width: 40px;">
+          <img class="gallery-image" src="" alt="Gallery Image"
+               style="max-width: 100%; display: block; margin: 0 auto;">
+          <img class="gallery-arrow gallery-next" src="assets/img/masonry-portfolio/icon/right.png" alt="Suivant"
+               style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer; width: 40px;">
+        </div>
+        <div class="modal-info">
+          <p>Informations sur le média.</p>
+        </div>
+      </div>
+    </div>
+  
+
+
+    
+      
+    <!-- Portfolio end -->
+
+    <!-- Services Section -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Services</h2>
+   <p class="tech-button-services">
+      <span>D</span><span>é</span><span>c</span><span>o</span><span>u</span><span>v</span><span>r</span><span>e</span><span>z</span>
+      <span>l</span><span>e</span><span>s</span>
+      <span>s</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span>
+      <span>q</span><span>u</span><span>e</span>
+      <span>j</span><span>e</span>
+      <span>p</span><span>r</span><span>o</span><span>p</span><span>o</span><span>s</span><span>e</span>
+      <span>e</span><span>n</span>
+      <span>t</span><span>a</span><span>n</span><span>t</span><span> </span><span>q</span><span>u</span><span>e</span>
+      <span>d</span><span>é</span><span>v</span><span>e</span><span>l</span><span>o</span><span>p</span><span>p</span><span>e</span><span>u</span><span>r</span>
+      <span>w</span><span>e</span><span>b</span><span>.</span>
+    </p>
+    
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <style>
+        .service-item {
+          transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          border-radius: 10px;
+        }
+
+        .service-item:hover {
+          transform: translateY(-10px) scale(1.05);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+          background: linear-gradient(135deg, rgba(0, 100, 255, 0.2), rgba(0, 50, 150, 0.2));
+        }
+
+        .service-item::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background: linear-gradient(90deg, #0044ff, #0066ff, #0088ff);
+          transition: width 0.3s ease-in-out;
+          width: 0;
+        }
+
+        .service-item:hover::before {
+          width: 100%;
+        }
+      </style>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item item-cyan position-relative">
+          <div class="icon">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Développement Web</h3>
+          </a>
+          <p>Création de sites web sur mesure, performants et responsives, adaptés à vos besoins et optimisés pour le SEO.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item item-orange position-relative">
+          <div class="icon">
+            <i class="bi bi-palette"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Intégration UI/UX</h3>
+          </a>
+          <p>Conception et intégration d'interfaces modernes et ergonomiques en utilisant Tailwind CSS et GreenSock (GSAP).</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item item-teal position-relative">
+          <div class="icon">
+            <i class="bi bi-server"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Développement Backend</h3>
+          </a>
+          <p>Conception d'API performantes et sécurisées, gestion des bases de données et mise en place de systèmes backend robustes.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item item-red position-relative">
+          <div class="icon">
+            <i class="bi bi-speedometer2"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Optimisation des Performances</h3>
+          </a>
+          <p>Amélioration de la vitesse et des performances des sites web pour garantir une meilleure expérience utilisateur et un meilleur référencement.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item item-indigo position-relative">
+          <div class="icon">
+            <i class="bi bi-lock"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Sécurité Web</h3>
+          </a>
+          <p>Protection contre les failles de sécurité courantes, mise en place de bonnes pratiques et sécurisation des applications web.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item item-pink position-relative">
+          <div class="icon">
+            <i class="bi bi-wordpress"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Développement CMS</h3>
+          </a>
+          <p>Personnalisation et développement de sites avec WordPress, Strapi et d'autres CMS pour une gestion de contenu simplifiée.</p>
+        </div>
+      </div><!-- End Service Item -->
+    </div>
+  </div>
+</section><!-- /Services Section -->
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>FORMATION</h2>
+        <p class="tech-button-diplomas">
+          <span>M</span><span>e</span><span>s</span>  
+          <span>d</span><span>i</span><span>p</span><span>l</span><span>ô</span><span>m</span><span>e</span><span>s</span>  
+          <span>o</span><span>b</span><span>t</span><span>e</span><span>n</span><span>u</span><span>s</span>  
+          <span>a</span><span>u</span>  
+          <span>c</span><span>o</span><span>u</span><span>r</span><span>s</span>  
+          <span>d</span><span>e</span>  
+          <span>m</span><span>a</span>  
+          <span>f</span><span>o</span><span>r</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span>.
+        </p>
+        
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="testimonial-content">
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span>2025/2026</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                      <h3> Bachelor Develeloppeur informatique</h3>
+                      <h4>Ecole Sup De Vinci (Paris)</h4>
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <img src="data:image/jpeg;base64,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" class="img-fluid testimonial-img" alt="">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="testimonial-content">
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span> 2024/2025</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                      <h3>  Developpeur Web Full stack Bac+2</h3>
+                      <h4>MGK Formation (Argenteuil)</h4>
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <img src="data:image/png;base64,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" class="img-fluid testimonial-img" alt="">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="testimonial-content">
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span>2021/2022</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                      <h3>Baccalauréat General </h3>
+                      <h4>Lycée Edmond Rostand (Saint Ouen l'Aumonne)</h4>
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <img src="data:image/png;base64,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" class="img-fluid testimonial-img" alt="">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+         
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Contact Section -->
+<section id="contact" class="contact section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Contactez Moi</h2>
+    <p class="tech-button-message">
+      <span>U</span><span>n</span> <span>p</span><span>e</span><span>t</span><span>i</span><span>t</span>
+      <span>m</span><span>e</span><span>s</span><span>s</span><span>a</span><span>g</span><span>e</span>
+      <span>p</span><span>o</span><span>u</span><span>r</span>
+      <span>e</span><span>n</span> <span>s</span><span>a</span><span>v</span><span>o</span><span>i</span><span>r</span>
+      <span>p</span><span>l</span><span>u</span><span>s</span> <span>?</span>
+    </p>
+    
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade" data-aos-delay="100">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4">
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+          <i class="bi bi-geo-alt flex-shrink-0"></i>
+          <div>
+            <h3>Adresse</h3>
+            <p>Paris 18</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-telephone flex-shrink-0"></i>
+          <div>
+            <h3>Téléphone</h3>
+            <p>0610853226</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <i class="bi bi-envelope flex-shrink-0"></i>
+          <div>
+            <h3>Email</h3>
+            <p>inessanignace03@gmail.com</p>
+          </div>
+        </div><!-- End Info Item -->
+      </div>
+
+      <div class="col-lg-8">
+        <form id="contact-form">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" id="name" class="form-control" placeholder="Votre Nom" required>
+            </div>
+
+            <div class="col-md-6">
+              <input type="email" id="email" class="form-control" placeholder="Votre Email" required>
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" id="subject" class="form-control" placeholder="Sujet" required>
+            </div>
+
+            <div class="col-md-12">
+              <textarea id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <button type="submit" id="send-button" class="button-74">
+                Envoyer
+              </button>
+              <p id="response-message" style="display:none; color: green;">
+                Message envoyé avec succès !
+              </p>
+            </div>
+            
+            
+            
+        </form>
+      </div><!-- End Contact Form -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Contact Section -->
+
+
+<!-- Script pour empêcher la redirection après soumission -->
+<script>
+function sendEmail() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    let mailtoLink = `mailto:inessanignace03@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nom: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+
+    window.location.href = mailtoLink;
+}
+</script>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <h3 class="sitename">Inessan El Jadil</h3>
+      <p>Merci de votre visite. Retrouvez-moi sur les réseaux pour découvrir mes projets et collaborations.</p>
+      <div class="social-links d-flex justify-content-center">
+        
+        <a href="https://github.com/ton_pseudo" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://wa.me/0610853226" target="_blank"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/inessan_23" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/ton_pseudo" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename"> Portfolio Inessan</strong> <span>2025</span>
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          Designed by Inessan El jadil</a> 
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Importation de la bibliothèque EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  
+
+</body>
+
+</html>
